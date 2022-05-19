@@ -146,50 +146,44 @@ pub fn public_testnet_config() -> Result<ChainSpec, String> {
                 vec![
                     (
                         // Boot Node/Validator 1: ip address 95.217.2.2
-                        hex!["a538f6fbd05fdcd42d91600eca9c7e6b7240fa82fc23b569deea91af6c97a5f1"]
+                        hex!["b26ba5e78f4ccc425fb05a794101c9c6f81d10ceaf16dbeca0344c7d81ad8b53"]
                             .unchecked_into(),
-                        hex!["a66bdf2c219a5fc728188edfeed3eb1ef17612d65764a71effcffd7f16a72834"]
-                            .unchecked_into(),
-                    ),
-                    (
-                        // Boot Node/Validator 2: ip addres 95.217.4.158
-                        hex!["7ea36efa84a2e3e9416d94f4979aa9a6423d6a6dd2abb475e496cb571ee99dff"]
-                            .unchecked_into(),
-                        hex!["44c24fd0fc8cda7ba0c2613be44ef78782ee600eea05d4eb3af0a64f12056e6e"]
+                        hex!["5fafcba1cf85d14049a54d31444afe2489bedb5133723a0da75800bc6d65943f"]
                             .unchecked_into(),
                     ),
                     (
-                        // Boot Node/Validator 3: ip addres 95.217.1.25
-                        hex!["b034fb357e174f6c7bf7588dba0e191a24ae4f0b63f4ee41e9fcd9b00fcc5ed0"]
+                        // Boot Node/Validator 1: ip address 95.217.2.2
+                        hex!["2eb6912e2c6de51d5c3088116fc498d3ea01d9acb3fda04b607c547c2f8f4f72"]
                             .unchecked_into(),
-                        hex!["a401838c6a5043cc3353517e7c4396090277b568100806fed7769fadc8baa35b"]
+                        hex!["d946c2920fac16baddb9aa743239f3ae02857b898fd93c3dbfb1d93d877638ad"]
                             .unchecked_into(),
                     ),
                 ],
                 // Sudo
-                hex!["caca29e30cce36df2263139cb15dd0e3ecbeb053d37aeac7ac8d2291ff7afa5c"].into(),
+                hex!["b26ba5e78f4ccc425fb05a794101c9c6f81d10ceaf16dbeca0344c7d81ad8b53"].into(),
                 // Endowed accounts
                 vec![
-                    hex!["caca29e30cce36df2263139cb15dd0e3ecbeb053d37aeac7ac8d2291ff7afa5c"].into(),
-                    hex!["4e5758a750dad72ea2e777a16222765b5b713c9eeda2eb8cd3f3b989203c5008"].into(),
-                    hex!["ccf2f08394dde73dd5bd1946552e2042d1f502cb50eb7c29061873f5831caf42"].into(),
+                    hex!["b26ba5e78f4ccc425fb05a794101c9c6f81d10ceaf16dbeca0344c7d81ad8b53"].into(),
+                    // hex!["4e5758a750dad72ea2e777a16222765b5b713c9eeda2eb8cd3f3b989203c5008"].into(),
+                    // hex!["ccf2f08394dde73dd5bd1946552e2042d1f502cb50eb7c29061873f5831caf42"].into(),
                 ],
             )
         },
         // Bootnodes
         vec![
-            "/ip4/95.217.2.2/tcp/30333/p2p/12D3KooWQrG8VAfYs8nXv95XJDu9Yo1iKKQ2KZRJkBVtfxpLvoYe"
-                .parse()
-                .unwrap(),
-            "/ip4/95.217.4.158/tcp/30333/p2p/12D3KooWCAdsB5VvsQ7eCWPZZ4eCdYbriFVwEJnvE5B9YAmRNTuY"
-                .parse()
-                .unwrap(),
-            "/ip4/95.217.1.25/tcp/30333/p2p/12D3KooWCRjP5nofPVvE5d7yj7wktKBPKwWxzc4oNd78z63nNvJC"
-                .parse()
-                .unwrap(),
+            // "/ip4/95.217.2.2/tcp/30333/p2p/12D3KooWQrG8VAfYs8nXv95XJDu9Yo1iKKQ2KZRJkBVtfxpLvoYe"
+            //     .parse()
+            //     .unwrap(),
+            // "/ip4/95.217.4.158/tcp/30333/p2p/12D3KooWCAdsB5VvsQ7eCWPZZ4eCdYbriFVwEJnvE5B9YAmRNTuY"
+            //     .parse()
+            //     .unwrap(),
+            // "/ip4/95.217.1.25/tcp/30333/p2p/12D3KooWCRjP5nofPVvE5d7yj7wktKBPKwWxzc4oNd78z63nNvJC"
+            //     .parse()
+            //     .unwrap(),
         ],
         // Telemetry
-        TelemetryEndpoints::new(vec![(TELEMETRY_URL.into(), 0)]).ok(),
+        //TelemetryEndpoints::new(vec![(TELEMETRY_URL.into(), 0)]).ok(),
+        None,
         // Protocol ID
         Some("bitg_testnet"),
         None,
@@ -283,7 +277,7 @@ fn generate_genesis(
             balances: endowed_accounts
                 .iter()
                 .cloned()
-                .map(|k| (k, 1 << 60))
+                .map(|k| (k, 1 << 80))
                 .collect(),
         },
         aura: AuraConfig {
